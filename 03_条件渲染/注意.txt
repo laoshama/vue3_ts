@@ -1,0 +1,5 @@
+1、v-show不能和v-else一起使用
+
+2、v-show不支持template，v-if支持template
+
+3、v-show会将元素渲染出来，v-if会销毁和创建该元素

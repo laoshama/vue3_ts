@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .divider{
+            border-bottom: 1px solid red;
+            text-decoration: line-through;
+            text-indent: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+    <template id='my-app'>
+        <h2>个人信息</h2>
+        <ul>
+            <!-- 遍历对象，只有一个参数的情况下取到的是对象中的每个属性的值 -->
+            <li v-for="(value,key,index) in info">{{index}}-{{key}}-{{value}}</li>
+        </ul>
+        <h2>电影列表</h2>
+        <ul>
+            <!-- 遍历数组取到的是数组中的每一个值 -->
+            <li v-for="(item,index) in movies">{{index}}-{{item}}</li>
+        </ul>
+        <h2>遍历数字</h2>
+        <ul>
+            <li v-for="(num,index) in 10">{{index}}-{{num}}</li>
+        </ul>
+        <h2>v-for和template结合使用</h2>
+        <ul>
+            <template v-for="(value,key) in info">
+                <li>{{key}}</li>
+                <li>{{value}}</li>
+                <li class="divider">1111</li>
+            </template>
+        </ul>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        Vue.createApp({
+            template: '#my-app',
+            data() {
+                return {
+                    info: {
+                        name: 'laosha',
+                        age: 18,
+                        height: 1.73
+                    },
+                    movies: ['钢铁侠', '蜘蛛侠', '绿箭侠']
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

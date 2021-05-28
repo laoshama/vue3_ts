@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 借助 JSON 中的api进行深拷贝
+        //  JSON.stringify 可以将对象转变成一个字符串（不影响原对象）
+        //  JSON.parse 可以将字符串还原成一个对象并返回（一个新的对象，在内存中开辟了新的地址）
+    </script>
+
+    <!-- 借助lodash库 -->
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script>
+        const obj = { name: '孙悟空', age: 18, cars: { name: '保时捷', color: 'white' } }
+
+        // 浅拷贝方法   _.clone()
+        // const newObj = _.clone(obj)
+        // newObj.cars.name = '法拉利'
+        // console.log(obj.cars.name)
+
+        //  深拷贝方法  _.cloneDeep()
+        const newObj = _.cloneDeep(obj)
+        newObj.cars.name = '法拉利'
+        console.log(obj.cars.name)
+    </script>
+</body>
+
+</html>

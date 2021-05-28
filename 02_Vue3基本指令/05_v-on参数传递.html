@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+    <template id='my-app'>
+        <!-- 默认传入event对象 -->
+        <button @click='send1'>点击传参1</button>
+        <!-- 携带其他参数的时候，需要手动添加$event参数，这人杨才会传递事件对象，不要求参数的顺序 -->
+        <button @click="send2(18,$event,'老沙')">点击传参2</button>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        Vue.createApp({
+            template: '#my-app',
+            data() {
+                return {
+                }
+            },
+            methods: {
+                send1(event) {
+                    console.log(event)
+                },
+                send2(age, event, name) {
+                    console.log(event, name, age)
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>
