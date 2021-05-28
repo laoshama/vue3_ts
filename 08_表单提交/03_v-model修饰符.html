@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+    <template id='my-app'>
+        <!-- 1、lazy修饰符 -->
+        <!-- <input type="text" v-model.lazy="msg"> -->
+
+        <!-- 2、number修饰符 将输入的数字变成 number类型-->
+        <input type="text" v-model.number="msg">
+        <h2>{{msg}}</h2>
+        <button @click="showType">查看类型</button>
+
+        <!-- 3、trim修饰符  去除两边空格 -->
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        Vue.createApp({
+            template: '#my-app',
+            data() {
+                return {
+                    msg: ''
+                }
+            },
+            methods: {
+                showType() {
+                    console.log(this.msg, typeof this.msg)
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>
